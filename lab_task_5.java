@@ -1,30 +1,38 @@
 import java.util.*;
-class lab_task_5{
+class hh{
 	public static void main(String[] args){
 		String email,password;
 		String[][] userinfo = { {"hanzala@gmail.com","00000000"}, {"bilal@hotmail.com","11111111"},{"choudry@yahoo.com","22222222"},
         {"danish@gmail.com","33333333"},{"fakhir@gmail.com", "44444444"}};
+
             System.out.println("welcome to pakistan ARMY'S WEBSITE ");
 			Scanner obj = new Scanner(System.in);
+
 			System.out.println("Enter Your Email Address: ");
-			email = obj.nextLine();
-            if(email.equalsIgnoreCase(userinfo[0][0])|| email.equalsIgnoreCase(userinfo[1][0]) || email.equalsIgnoreCase(userinfo[2][0])|| email.equalsIgnoreCase(userinfo[3][0]) || email.equalsIgnoreCase(userinfo[4][0]))
-            {
-                System.out.println("enter the passward");
-            }
-            else 
-            {
-                System.out.print("invalid email");
-            }
-            password=obj.nextLine();
-           if(password.equalsIgnoreCase(userinfo[0][1])|| password.equalsIgnoreCase(userinfo[1][1])||password.equalsIgnoreCase(userinfo[2][1])||password.equalsIgnoreCase(userinfo[3][1])||password.equalsIgnoreCase(userinfo[4][1]))
-            {
-              
-            System.out.println("welcome to the the login page");
+			email = obj.next();
+            System.out.println("Enter Your Password: ");
+			password = obj.next();
+        
+                int i;
+                boolean AccountExists = false;
+
+                for( i=0;i< userinfo.length;i++){
+                    if(userinfo[i][0].equals(email)) {
+                        AccountExists = true;
+                        
+                        if( userinfo[i][1].equals(password))  {
+                            System.out.println(" you are login ");
+                            break;
+                        }
+                    }
+                }
+                if(i == userinfo.length)  
+                  System.out.println(":Invalid Credentials");
+
+                if(AccountExists)  
+                  System.out.println(":Account Exists");
+                else
+                  System.out.println(":Account Doesn't exists");
+ 
         }
-          else
-{
-             System.out.print("sorry wrong password");
-    }
-}
 }
